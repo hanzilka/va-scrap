@@ -39,13 +39,13 @@ def get_voice_actor_data(url):
 NUMBER_OF_ACTORS = int(sys.argv[1]) if len(sys.argv) > 1 else 1
 print(f"GETTING {NUMBER_OF_ACTORS}")
 
-start_index = 1 # číslo stránky z people
+start_index = 101 # číslo stránky z people
 end_index = start_index + NUMBER_OF_ACTORS - 1
 filename = f"voice_actors_{start_index}-{end_index}_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.json"
 
 with open(filename, "w", newline="", encoding="utf-8") as file:
     json_data = []
-    for i in range(start_index, end_index + 1):
+    for i in range(start_index, end_index + 101):
         url = f"https://myanimelist.net/people/{i}"
         voice_actor_data = get_voice_actor_data(url)
         if voice_actor_data is not None:
